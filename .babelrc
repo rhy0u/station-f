@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["@vue/app", { "useBuiltIns": "entry" }],
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs",
+        "loose": true,
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["babel-plugin-module-resolver", { "root": ["./src"] }],
+    "@babel/plugin-syntax-dynamic-import"
+  ]
+}
