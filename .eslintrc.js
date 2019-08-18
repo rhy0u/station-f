@@ -21,6 +21,8 @@ module.exports = {
     },
   },
   rules: {
+    'import/no-extraneous-dependencies': 'off',
+    'no-underscore-dangle': 'off',
     'no-shadow': 'off',
     'import/prefer-default-export': 'off',
     'no-param-reassign': 'off',

@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import HelloWorld from 'client/components/HelloWorld.vue'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
   },
   data: () => ({
     //
-  })
-};
+  }),
+}
 </script>

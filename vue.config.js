@@ -7,12 +7,14 @@ module.exports = {
     },
   },
   outputDir: path.resolve(__dirname, 'public/dist'),
-  publicPath: path.resolve(__dirname, 'dist/'),
+
   devServer: {
     proxy: 'http://localhost:8000',
   },
   configureWebpack: {
     resolve: {
+      extensions: ['.js', '.json', '.vue'],
+
       modules: ['node_modules', 'src'],
     },
   },

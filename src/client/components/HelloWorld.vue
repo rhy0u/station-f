@@ -48,7 +48,7 @@
 
 import axios from 'axios'
 import moment from 'moment'
-import BookingButtonModal from './BookingButton'
+import BookingButtonModal from './BookingButton.vue'
 
 export default {
   components: { BookingButtonModal },
@@ -98,7 +98,7 @@ export default {
     },
   },
   watch: {
-    selectedEquipments: function(selectedEquipments) {
+    selectedEquipments(selectedEquipments) {
       axios
         .get('/rooms', {
           params: { equipments: selectedEquipments.join(',') },

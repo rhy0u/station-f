@@ -2,6 +2,7 @@
 
 import express from 'express'
 import cors from 'cors'
+import path from 'path'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import config from 'server/config'
@@ -13,6 +14,9 @@ const app = express()
 
 app.use(morgan('dev'))
 app.use(cors())
+
+app.use(express.static(path.resolve(__dirname, '../../public/dist')))
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(rooms)

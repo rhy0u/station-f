@@ -13,7 +13,7 @@ const config = convict({
   database: {
     url: {
       doc: 'the database url',
-      env: 'DATABASE_URL',
+      env: 'MONGODB_URI',
       default: 'mongodb://localhost:27017/development',
     },
   },

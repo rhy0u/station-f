@@ -6,8 +6,13 @@
   "license": "MIT",
   "scripts": {
     "dev:server": "yarn nodemon src/server/app.js",
-    "dev:client": "webpack-dev-server --port 8080",
-    "db:seed": "vue-cli-service serve"
+    "dev:client": "vue-cli-service serve",
+    "db:seed": "babel-node ./database/seeds/seeds.js",
+    "build:client": "rm -rf public/dist && NODE_ENV=production vue-cli-service build",
+    "build:server": "rm -rf lib/ && cp -R src/ lib/ && NODE_ENV=production babel -d lib src",
+    "build": "yarn build:client && yarn build:server",
+    "start": "NODE_ENV=production node lib/server/app.js",
+    "heroku-postbuild": "yarn build && yarn db:seed"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -15,6 +20,7 @@
     "@babel/node": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.0.0",
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
@@ -25,8 +31,8 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "^1.10.1",
     "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "nodemon": "^1.19.1",
@@ -37,7 +43,10 @@
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "@mdi/font": "^4.0.96",
     "axios": "^0.19.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "convict": "^5.1.0",
     "core-js": "^3.2.1",

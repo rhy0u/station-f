@@ -20,9 +20,8 @@
 </template>
 
 <script>
-/* eslint-disable no-console */
-
 import moment from 'moment'
+
 export default {
   props: ['interval', 'date', 'room', 'handleClick'],
   data() {
@@ -39,7 +38,6 @@ export default {
   methods: {
     onClickYes() {
       const { handleClick, interval, date, room } = this
-      console.log(date.value)
       handleClick(interval, date.value, room._id)
       this.dialog = false
     },
