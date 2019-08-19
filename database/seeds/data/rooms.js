@@ -1,7 +1,5 @@
 import Room from 'server/models/Room'
 
-export const truncate = async () => Room.deleteMany()
-
 export const generate = async () =>
   Room.create([
     {

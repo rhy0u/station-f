@@ -12,6 +12,7 @@
     "build:server": "rm -rf lib/ && cp -R src/ lib/ && NODE_ENV=production babel -d lib src",
     "build": "yarn build:client && yarn build:server",
     "start": "NODE_ENV=production node lib/server/app.js",
+    "test": "jest --runInBand",
     "heroku-postbuild": "yarn build && yarn db:seed"
   },
   "devDependencies": {
@@ -26,7 +27,7 @@
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "babel-eslint": "^10.0.2",
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-styled-components": "^1.10.1",
@@ -35,6 +36,7 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.1",
     "sass": "^1.22.10",
     "sass-loader": "^7.2.0",
@@ -64,6 +66,7 @@
     "morgan": "^1.9.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "supertest": "^4.0.2",
     "vue": "^2.6.10",
     "vuetify": "^2.0.7"
   }

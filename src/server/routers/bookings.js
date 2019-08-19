@@ -13,7 +13,7 @@ router.post(
   asyncHandler(async ({ body: { roomId, date, interval } }, res) => {
     const room = await Room.findById(roomId).exec()
     if (!room) {
-      throw new Error('Room not found.')
+      res.status(500).send('error: Room not found.')
     }
 
     const { bookings } = await Room.findById(roomId)
@@ -28,7 +28,7 @@ router.post(
     })
 
     if (isBooked) {
-      throw new Error('The is already booked.')
+      res.status(500).send('error: The room is already booked.')
     }
 
     const booking = await Booking.create({

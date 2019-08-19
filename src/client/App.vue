@@ -8,21 +8,18 @@
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-content>
-      <HelloWorld />
+      <RoomList />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from 'client/components/HelloWorld.vue'
+import RoomList from 'client/components/RoomList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    RoomList,
   },
-  data: () => ({
-    //
-  }),
 }
 </script>
